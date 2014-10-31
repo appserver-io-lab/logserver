@@ -106,7 +106,7 @@ class CoreModule implements ModuleInterface
             return;
         }
 
-        error_log(var_export($request, true));
+        error_log(var_export($request->getBodyContent(), true));
 
         // set response state to be dispatched after this without calling other modules process
         $response->setState(HttpResponseStates::DISPATCH);
