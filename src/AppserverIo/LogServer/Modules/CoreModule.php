@@ -85,21 +85,22 @@ class CoreModule implements ModuleInterface
     /**
      * Implement's module logic for given hook
      *
-     * @param \TechDivision\Connection\ConnectionRequestInterface $request A request object
-     * @param \TechDivision\Connection\ConnectionResponseInterface $response A response object
+     * @param \TechDivision\Connection\ConnectionRequestInterface     $request        A request object
+     * @param \TechDivision\Connection\ConnectionResponseInterface    $response       A response object
      * @param \TechDivision\Server\Interfaces\RequestContextInterface $requestContext A requests context instance
-     * @param int $hook The current hook to process logic for
+     * @param int                                                     $hook           The current hook to process logic for
      *
      * @return bool
      * @throws \TechDivision\Server\Exceptions\ModuleException
      */
     public function process(
+        /** @var $request \TechDivision\Http\HttpRequestInterface */
         ConnectionRequestInterface $request,
+        /** @var $request \TechDivision\Http\HttpRequestInterface */
         ConnectionResponseInterface $response,
         RequestContextInterface $requestContext,
         $hook
-    )
-    {
+    ) {
         // if false hook is comming do nothing
         if (ModuleHooks::REQUEST_POST !== $hook) {
             return;
@@ -107,8 +108,8 @@ class CoreModule implements ModuleInterface
 
         error_log(var_export($request, true));
 
-        $response->appendBodyStream('OK');
-
+        // set response state to be dispatched after this without calling other modules process
+        $response->setState(HttpResponseStates::DISPATCH);
     }
 
     /**
@@ -130,5 +131,4 @@ class CoreModule implements ModuleInterface
     {
         return self::MODULE_NAME;
     }
-
 }

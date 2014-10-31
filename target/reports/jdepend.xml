@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PDepend>
+  <Packages>
+    <Package name="AppserverIo\LogServer\Modules">
+      <Stats>
+        <TotalClasses>1</TotalClasses>
+        <ConcreteClasses>1</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>0</Ca>
+        <Ce>4</Ce>
+        <A>0</A>
+        <I>1</I>
+        <D>0</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="/home/zelgerj/Repositories/appserver-io-logserver/src/AppserverIo/LogServer/Modules/CoreModule.php">CoreModule</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon>
+        <Package>TechDivision\Connection</Package>
+        <Package>TechDivision\Http</Package>
+        <Package>TechDivision\Server\Dictionaries</Package>
+        <Package>TechDivision\Server\Interfaces</Package>
+      </DependsUpon>
+      <UsedBy/>
+    </Package>
+  </Packages>
+  <Cycles/>
+</PDepend>
