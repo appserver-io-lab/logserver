@@ -27,7 +27,7 @@ If you can satisfy the requirements it is very simple to use the logserver. Just
 git clone https://github.com/appserver-io/logserver
 cd logserver
 composer install
-PHP_BIN=/path/to/your/threadsafe/php-binary logserver/src/bin/logserver
+PHP_BIN=/path/to/your/threadsafe/php-binary src/bin/logserver
 ```
 If you're using [`appserver.io`](<http://www.appserver.io>) the startup will be:
 ```bash
