@@ -86,7 +86,6 @@
                 <param name="directoryIndex" type="string">default.log</param>
                 <!-- disable keepAlive feature -->
                 <param name="keepAliveMax" type="integer">0</param>
-                <param name="keepAliveTimeout" type="integer">5</param>
             </params>
 
             <connectionHandlers>
@@ -96,6 +95,7 @@
             <modules>
                 <!-- REQUEST_POST hook -->
                 <module type="\AppserverIo\LogServer\Modules\CoreModule"/>
+                <module type="\AppserverIo\LogServer\Modules\FileModule"/>
             </modules>
             <handlers>
                 <handler name="file" extension=".log"/>
