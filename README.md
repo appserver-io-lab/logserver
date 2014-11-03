@@ -33,7 +33,7 @@ git clone https://github.com/appserver-io/logserver
 ./logserver/src/bin/logserver
 ```
 
-Now the server is listening on ```0:0:0:0:9514```.
+Now the server is listening on ```0.0.0.0.9514```.
 
 You can send normal http request into the log server in a specific way which is not clear yet.
 
