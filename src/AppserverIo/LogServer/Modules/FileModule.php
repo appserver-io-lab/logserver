@@ -1,6 +1,6 @@
 <?php
 /**
- * \AppserverIo\LogServer\Modules\CoreModule
+ * \AppserverIo\LogServer\Modules\FileModule
  *
  * NOTICE OF LICENSE
  *
@@ -35,10 +35,9 @@ use TechDivision\Server\Interfaces\RequestContextInterface;
 use TechDivision\Server\Interfaces\ServerContextInterface;
 use TechDivision\Server\Exceptions\ModuleException;
 use TechDivision\Server\Dictionaries\MimeTypes;
-use TechDivision\WebServer\Modules\CoreModule as HttpCoreModule;
 
 /**
- * Class CoreModule
+ * Class FileModule
  *
  * @category   Server
  * @package    LogServer
@@ -48,8 +47,38 @@ use TechDivision\WebServer\Modules\CoreModule as HttpCoreModule;
  * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link       https://github.com/appserver-io/logserver
  */
-class CoreModule extends HttpCoreModule implements ModuleInterface
+class FileModule implements ModuleInterface
 {
+    /**
+     * Defines the module's name
+     *
+     * @var string
+     */
+    const MODULE_NAME = 'file';
+
+    /**
+     * Initiates the module
+     *
+     * @param \TechDivision\Server\Interfaces\ServerContextInterface $serverContext The server's context instance
+     *
+     * @return bool
+     * @throws \TechDivision\Server\Exceptions\ModuleException
+     */
+    public function init(ServerContextInterface $serverContext)
+    {
+        // nothing yet
+    }
+
+    /**
+     * Prepares the module for upcoming request in specific context
+     *
+     * @return bool
+     * @throws \TechDivision\Server\Exceptions\ModuleException
+     */
+    public function prepare()
+    {
+        // nothing yet
+    }
 
     /**
      * Implement's module logic for given hook
@@ -73,24 +102,39 @@ class CoreModule extends HttpCoreModule implements ModuleInterface
 
         // if false hook is comming do nothing
         if (ModuleHooks::REQUEST_POST !== $hook) {
-            return;
+            return false;
         }
 
-        // check if core module should still handle this request
-        // maybe later on this can be overwritten by another core module for some reasons
+        // check if correct file handler was set for this module to process
         if ($requestContext->getServerVar(ServerVars::SERVER_HANDLER) !== self::MODULE_NAME) {
             // stop processing
-            return;
+            return false;
         }
 
-        $this->populateRequestContext($requestContext);
+        // just if method is POST
+        if ($request->getMethod() === HttpProtocol::METHOD_POST) {
+            // prepare vars
+            $documentRoot = $requestContext->getServerVar(ServerVars::DOCUMENT_ROOT);
+            $scriptName = $requestContext->getServerVar(ServerVars::SCRIPT_NAME);
+            $logDir = dirname($scriptName);
+            $filename = basename($scriptName);
+            $baseDir = $documentRoot . $logDir;
+            $filepath = $baseDir . DIRECTORY_SEPARATOR . $filename;
 
-        // check if core module should still handle this request
-        if ($requestContext->getServerVar(ServerVars::SERVER_HANDLER) !== self::MODULE_NAME) {
-            // stop processing
-            return;
+            // check if base dir exists
+            if (!is_dir($baseDir)) {
+                // create it recursively
+                mkdir($baseDir, 0775, true);
+            }
+
+            // open file handle to log file
+            $fileHandle = fopen($filepath, 'a+');
+            // write to file
+            fwrite($fileHandle, $request->getBodyContent());
+
+            // set response state to be dispatched after this without calling other modules process
+            $response->setState(HttpResponseStates::DISPATCH);
         }
-
     }
 
     /**
@@ -101,5 +145,15 @@ class CoreModule extends HttpCoreModule implements ModuleInterface
     public function getDependencies()
     {
         return array();
+    }
+
+    /**
+     * Returns the module name
+     *
+     * @return string The module name
+     */
+    public function getModuleName()
+    {
+        return self::MODULE_NAME;
     }
 }

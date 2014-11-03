@@ -1,2 +1,4 @@
+/target
 /vendor
 /composer.lock
+/src/var/log

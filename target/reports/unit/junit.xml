@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuites>
-  <testsuite name="appserver-io/logserver PHPUnit testsuite" tests="1" assertions="1" failures="0" errors="0" time="0.002444">
-    <testsuite name="TechDivision\WebServer\DummyTest" file="/home/zelgerj/Repositories/appserver-io-logserver/tests/AppserverIo/LogServer/DummyTest.php" namespace="TechDivision\WebServer" fullPackage="LogServer.tests" category="Server" package="LogServer" subpackage="tests" tests="1" assertions="1" failures="0" errors="0" time="0.002444">
-      <testcase name="testDummy" class="TechDivision\WebServer\DummyTest" file="/home/zelgerj/Repositories/appserver-io-logserver/tests/AppserverIo/LogServer/DummyTest.php" line="42" assertions="1" time="0.002444"/>
-    </testsuite>
-  </testsuite>
-</testsuites>
