@@ -83,10 +83,10 @@ class FileModule implements ModuleInterface
     /**
      * Implement's module logic for given hook
      *
-     * @param \TechDivision\Connection\ConnectionRequestInterface $request A request object
-     * @param \TechDivision\Connection\ConnectionResponseInterface $response A response object
+     * @param \TechDivision\Connection\ConnectionRequestInterface     $request        A request object
+     * @param \TechDivision\Connection\ConnectionResponseInterface    $response       A response object
      * @param \TechDivision\Server\Interfaces\RequestContextInterface $requestContext A requests context instance
-     * @param int $hook The current hook to process logic for
+     * @param int                                                     $hook           The current hook to process logic for
      *
      * @return bool
      * @throws \TechDivision\Server\Exceptions\ModuleException

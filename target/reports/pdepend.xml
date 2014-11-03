@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<metrics generated="2014-10-31T17:05:48" pdepend="@package_version@" ahh="0" andc="0" calls="3" ccn="6" ccn2="6" cloc="76" clsa="0" clsc="1" eloc="46" fanout="7" leafs="1" lloc="27" loc="135" maxDIT="0" ncloc="59" noc="1" nof="0" noi="0" nom="5" nop="1" roots="0">
+<metrics generated="2014-11-03T18:03:43" pdepend="@package_version@" ahh="1" andc="0" calls="12" ccn="14" ccn2="14" cloc="138" clsa="0" clsc="2" eloc="102" fanout="15" leafs="1" lloc="65" loc="266" maxDIT="2" ncloc="128" noc="2" nof="0" noi="0" nom="7" nop="1" roots="1">
   <files>
-    <file name="/home/zelgerj/Repositories/appserver-io-logserver/src/AppserverIo/LogServer/Modules/CoreModule.php" cloc="76" eloc="46" lloc="27" loc="135" ncloc="59"/>
+    <file name="/home/zelgerj/Repositories/appserver-io-logserver/src/AppserverIo/LogServer/Modules/CoreModule.php" cloc="54" eloc="41" lloc="26" loc="106" ncloc="52"/>
+    <file name="/home/zelgerj/Repositories/appserver-io-logserver/src/AppserverIo/LogServer/Modules/FileModule.php" cloc="84" eloc="61" lloc="39" loc="160" ncloc="76"/>
   </files>
-  <package name="AppserverIo\LogServer\Modules" cr="0.15" noc="1" nof="0" noi="0" nom="5" rcr="0.2775">
-    <class name="CoreModule" ca="0" cbo="7" ce="7" cis="5" cloc="46" cr="0.15" csz="5" dit="0" eloc="17" impl="1" lloc="6" loc="85" ncloc="39" noam="0" nocc="0" nom="5" noom="0" npm="5" rcr="0.2775" vars="0" varsi="0" varsnp="0" wmc="6" wmci="6" wmcnp="6">
+  <package name="AppserverIo\LogServer\Modules" cr="0.15" noc="2" nof="0" noi="0" nom="7" rcr="0.405">
+    <class name="CoreModule" ca="0" cbo="6" ce="6" cis="2" cloc="24" cr="0.15" csz="2" dit="2" eloc="15" impl="1" lloc="8" loc="55" ncloc="31" noam="2" nocc="0" nom="2" noom="0" npm="2" rcr="0.34125" vars="0" varsi="0" varsnp="0" wmc="5" wmci="5" wmcnp="5">
       <file name="/home/zelgerj/Repositories/appserver-io-logserver/src/AppserverIo/LogServer/Modules/CoreModule.php"/>
+      <method name="process" ccn="4" ccn2="4" cloc="8" eloc="12" lloc="7" loc="30" ncloc="22" npath="8"/>
+      <method name="getDependencies" ccn="1" ccn2="1" cloc="0" eloc="3" lloc="1" loc="4" ncloc="4" npath="1"/>
+    </class>
+    <class name="FileModule" ca="0" cbo="9" ce="9" cis="5" cloc="54" cr="0.15" csz="5" dit="0" eloc="32" impl="1" lloc="18" loc="110" ncloc="56" noam="0" nocc="0" nom="5" noom="0" npm="5" rcr="0.21375" vars="0" varsi="0" varsnp="0" wmc="9" wmci="9" wmcnp="9">
+      <file name="/home/zelgerj/Repositories/appserver-io-logserver/src/AppserverIo/LogServer/Modules/FileModule.php"/>
       <method name="init" ccn="1" ccn2="1" cloc="1" eloc="2" lloc="0" loc="4" ncloc="3" npath="1"/>
       <method name="prepare" ccn="1" ccn2="1" cloc="1" eloc="2" lloc="0" loc="4" ncloc="3" npath="1"/>
-      <method name="process" ccn="2" ccn2="2" cloc="2" eloc="7" lloc="4" loc="18" ncloc="16" npath="2"/>
+      <method name="process" ccn="5" ccn2="5" cloc="12" eloc="22" lloc="16" loc="45" ncloc="33" npath="12"/>
       <method name="getDependencies" ccn="1" ccn2="1" cloc="0" eloc="3" lloc="1" loc="4" ncloc="4" npath="1"/>
       <method name="getModuleName" ccn="1" ccn2="1" cloc="0" eloc="3" lloc="1" loc="4" ncloc="4" npath="1"/>
     </class>

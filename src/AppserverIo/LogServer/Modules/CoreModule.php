@@ -102,5 +102,4 @@ class CoreModule extends HttpCoreModule implements ModuleInterface
     {
         return array();
     }
-
 }
