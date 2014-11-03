@@ -25,12 +25,13 @@ Usage
 If you can satisfy the requirements it is very simple to use the logserver. Just do this:
 ```bash
 git clone https://github.com/appserver-io/logserver
+cd logserver
+composer install
 PHP_BIN=/path/to/your/threadsafe/php-binary logserver/src/bin/logserver
 ```
-If you're using [`appserver.io`](<http://www.appserver.io>) it'll be this:
+If you're using [`appserver.io`](<http://www.appserver.io>) the startup will be:
 ```bash
-git clone https://github.com/appserver-io/logserver
-./logserver/src/bin/logserver
+PHP_BIN=/opt/appserver/bin/php src/bin/logserver
 ```
 
 Now the server is listening on ```0.0.0.0:9514```.
