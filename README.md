@@ -6,6 +6,11 @@ A log server accepting http requests on udp to log async to configured locations
 
 We use this in the [`appserver.io`](<http://www.appserver.io>) project as a server component for internal logging.
 
+## Issues
+In order to bundle our efforts we would like to collect all issues regarding this package in [the main project repository's issue tracker](https://github.com/appserver-io/appserver/issues).
+Please reference the originating repository as the first element of the issue title e.g.:
+`[appserver-io/<ORIGINATING_REPO>] A issue I am having`
+
 ## Installation
 
 If you want to use the log server with your application you can install it by adding
